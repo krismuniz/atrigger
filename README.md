@@ -135,6 +135,10 @@ tasks.resume({
 
 ```
 
+##### Required Parameters:
+
+* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`).
+
 #### `verifyRequest` method
 
 Pass an IP address and the A Trigger API will respond if the call comes from a A Trigger server
