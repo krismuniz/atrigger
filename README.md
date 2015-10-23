@@ -1,4 +1,5 @@
-# atrigger
+# atrigger [![Build Status](https://travis-ci.org/krismuniz/atrigger-node.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger-node)
+
 A very simple [A Trigger](http://atrigger.com) API module implementation for Node.js
 
 [A Trigger](http://atrigger.com) is a task scheduling tool that can be used to do synchronous/periodic app tasks. It is a very simple and flexible alternative to using [Cron](https://en.wikipedia.org/wiki/Cron). I use it a lot, so I wrote this simple abstraction to make my life easier and hopefully yours too.
