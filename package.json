@@ -1,0 +1,34 @@
+{
+  "name": "atrigger-node",
+  "version": "0.0.1",
+  "description": "A Trigger API library for Node.js",
+  "main": "./index",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krismuniz/atrigger-node.git"
+  },
+  "keywords": [
+    "atrigger",
+    "node",
+    "API"
+  ],
+  "engines": {
+    "node": ">=4.1.1"
+  },
+  "author": "Kristian Muñiz <kristian.muniz@upr.edu> (http://www.krismuniz.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krismuniz/atrigger-node/issues"
+  },
+  "homepage": "https://github.com/krismuniz/atrigger-node#readme",
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "request": "^2.65.0"
+  }
+}
