@@ -1,4 +1,6 @@
-# atrigger [![Build Status](https://travis-ci.org/krismuniz/atrigger-node.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger-node)
+# atrigger
+
+[![Build Status](https://travis-ci.org/krismuniz/atrigger-node.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger-node)
 
 A very simple [A Trigger](http://atrigger.com) API module implementation for Node.js
 
