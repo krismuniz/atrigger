@@ -26,7 +26,9 @@ function getRequest(endpoint, urlParameters, callback) {
   var urlString = 'http://api.atrigger.com/v1/';
   urlString += endpoint + '?' + urlParameters;
   return request(urlString, function(error, respose, body) {
-    callback(JSON.parse(error), JSON.parse(body));
+    if (callback) {
+      callback(JSON.parse(error), JSON.parse(body));
+    }
   });
 }
 
