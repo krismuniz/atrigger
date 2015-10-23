@@ -1,7 +1,7 @@
 # atrigger
-A very simple [A Trigger](atrigger.com) API module implementation for Node.js
+A very simple [A Trigger](http://atrigger.com) API module implementation for Node.js
 
-[A Trigger](atrigger.com) is a task scheduling tool that can be used to do synchronous/periodic app tasks. It is a very simple and flexible alternative to using [Cron](https://en.wikipedia.org/wiki/Cron). I use it a lot, so I wrote this simple abstraction to make my life easier and hopefully yours too.
+[A Trigger](http://atrigger.com) is a task scheduling tool that can be used to do synchronous/periodic app tasks. It is a very simple and flexible alternative to using [Cron](https://en.wikipedia.org/wiki/Cron). I use it a lot, so I wrote this simple abstraction to make my life easier and hopefully yours too.
 
 ## Features
 
@@ -135,9 +135,21 @@ tasks.resume({
 
 ```
 
+#### `verifyRequest` method
+
+Pass an IP address and the A Trigger API will respond if the call comes from a A Trigger server
+
+```javascript
+
+tasks.verifyRequest({
+  ip: '192.168.1.1'
+}, callback(err, res))
+
+```
+
 ##### Required Parameters:
 
-* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`).
+* `ip` (*required*): [ `ip address` ] An IP Address (string)
 
 ## Testing
 
