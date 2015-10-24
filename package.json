@@ -1,7 +1,7 @@
 {
   "name": "atrigger",
-  "version": "0.0.33",
-  "description": "A Trigger API library for Node.js",
+  "version": "0.0.34",
+  "description": "A Trigger API JavaScript library",
   "main": "./index",
   "scripts": {
     "test": "NODE_ENV=test mocha --reporter spec"

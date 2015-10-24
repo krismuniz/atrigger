@@ -2,9 +2,13 @@
 
 [![Build Status](https://travis-ci.org/krismuniz/atrigger-node.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger-node)
 
-A very simple [A Trigger](http://atrigger.com) API module implementation for Node.js
+A very simple [A Trigger](http://atrigger.com) JavaScript library that helps you schedule and manage tasks using *A Trigger's* API.
 
-[A Trigger](http://atrigger.com) is a task scheduling tool that can be used to do synchronous/periodic app tasks. It is a very simple and flexible alternative to using [Cron](https://en.wikipedia.org/wiki/Cron). I use it a lot, so I wrote this simple abstraction to make my life easier and hopefully yours too.
+#### What is *A Trigger*?
+
+[A Trigger](http://atrigger.com) is a tool/service that helps you schedule periodic and fixed-time tasks by sending a GET request to a given url. It is a very simple and considerably flexible alternative to using [Cron](https://en.wikipedia.org/wiki/Cron) for job scheduling.
+
+I use it a lot, so I wrote this simple abstraction to make my life easier and hopefully yours too.
 
 ## Features
 
@@ -18,13 +22,13 @@ This is basically a simple abstraction of the [A Trigger Rest API](http://atrigg
 
 ```javascript
 // Require the atrigger module
-var ATrigger = require('atrigger')
+var ATrigger = require('atrigger');
 
 // Create a new ATrigger client instance with your API Key and Secret
 var tasks = new ATrigger({
   APIKey: 'API_KEY',
   APISecret: 'API_SECRET'
-})
+});
 
 // Create a new task
 tasks.create({
@@ -35,13 +39,12 @@ tasks.create({
     'title': 'call-my-site',
     'id': 'OtftvvsJ'
   }
-})
+});
 ```
 
 You can handle request errors and API responses, too.
 
 ```javascript
-
 tasks.create({
   url: 'http://www.krismuniz.com/',
   timeSlice: '10min',
@@ -52,8 +55,7 @@ tasks.create({
   } else {
     // Do stuff with APIs response
   }
-})
-
+});
 ```
 
 ## Installation
@@ -61,102 +63,92 @@ tasks.create({
 Installing the ```atrigger``` module is as simple as installing any other npm module:
 
 ```shell
-$ npm install atrigger -S
+$ npm install atrigger
 ```
 
 ## API Reference
 
 #### `create` method
 
-Creates a new task given a specific set of parameters.
+Creates a new task given a specific set of parameters. The callback function is optional.
 
 ```javascript
-
 tasks.create({
   // parameters
-}, callback(err, res))
-
+}, callback(err, res));
 ```
 
 ##### Required Parameters:
 
-* `url` (*required*): [ `'http://www.example.com'` ] The target url that A Trigger will call it at defined TimeSlice. *Note: There is no need to use URIEncode()*
+* `url` (`[string]`): The target url that *A Trigger* will call at defined `timeSlice`. *Note: There is no need to use URIEncode(), the module does that for you.*
 
-* `timeSlice` (*required*): [ `'Xminute'` | `'Xhour'` | `'Xday'` | `'Xmonth'` | `'Xyear'` ] The time frequency at which your task needs to be executed.
+* `timeSlice` (`[string]`): The time frequency at which your task needs to be executed. (e.g. `'Xminute', 'Xhour', 'Xday', 'Xmonth', 'Xyear'` where `X` is a positive integer)
 
-* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`). You need to tag your tasks for future identification and to control them using the API in the future.
+* `tags` (`[object]`): An object containing tags **(e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`)**. You need to tag your tasks for future identification and to control them using the API.
 
 ##### Optional Parameters:
 
-* `retries` (*optional*): [ `Number` ] How many times should try if your server failed(or it was down)? Default value: 3
+* `retries` (`[integer]`): How many times *A Trigger* should try if your server failed (or was down)? Default value: `3`
 
-* `count` (*optional*): [ `Number` ] How many cycles should be repeated? Read more at [count parameter](http://atrigger.com/docs/wiki/8/rest-api-v10-parameter-count).
+* `count` (`[integer]`): How many cycles should be repeated? For an infinite amount of times write `-1`. Read more at [count parameter (Wiki)](http://atrigger.com/docs/wiki/8/rest-api-v10-parameter-count).
 
-* `first` (*optional*): When should be the first call? You are not required to set time value by default. Read more at [first parameter](http://atrigger.com/docs/wiki/10/rest-api-v10-parameter-first).
+* `first` (`[string from date in ISO 8601 format]`): When should the first call be made? You are not required to set time value by default. Read more at [first parameter (Wiki)](http://atrigger.com/docs/wiki/10/rest-api-v10-parameter-first). Hint: use `.toISOString()` to convert a date to the proper format.
 
 #### `delete` method
 
-All tasks containing a specified set of tags will be deleted.
+Deletes all tasks containing a specified set of tags. The callback function is optional.
 
 ```javascript
-
 tasks.delete({
   // parameters
-}, callback(err, res))
-
+}, callback(err, res));
 ```
 
 ##### Required Parameters:
 
-* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`).
+* `tags` (`[object]`): An object containing tags **(e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`)**. You need to tag your tasks for future identification and to control them using the API.
 
 #### `pause` method
 
-All currently running tasks containing a specified set of tags will be paused.
+Pauses all currently-active tasks that contain a specified set of tags. The callback function is optional.
 
 ```javascript
-
 tasks.pause({
   // parameters
-}, callback(err, res))
-
+}, callback(err, res));
 ```
 
 ##### Required Parameters:
 
-* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`).
+* `tags` (`[object]`): An object containing tags **(e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`)**. You need to tag your tasks for future identification and to control them using the API.
 
 #### `resume` method
 
-All currently paused tasks containing a specified set of tags will be resumed.
+Resumes all currently-paused tasks that contain a specified set of tags. The callback function is optional.
 
 ```javascript
-
 tasks.resume({
   // parameters
-}, callback(err, res))
-
+}, callback(err, res));
 ```
 
 ##### Required Parameters:
 
-* `tags` (*required*): [ `object` ] An object containing tags (e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`).
+* `tags` (`[object]`): An object containing tags **(e.g. `{ tagname: tagvalue, tagname2: tagvalue2 }`)**. You need to tag your tasks for future identification and to control them using the API.
 
 #### `verifyRequest` method
 
-Pass an IP address and the A Trigger API will respond if the call comes from a A Trigger server
+Pass an IP address and the A Trigger API will respond if the call comes from an *A Trigger* server. The callback function is required (otherwise the method's existence would be pointless).
 
 ```javascript
-
 tasks.verifyRequest({
   ip: '192.168.1.1'
-}, callback(err, res))
-
+}, callback(err, res));
 ```
 
 ##### Required Parameters:
 
-* `ip` (*required*): [ `ip address` ] An IP Address (string)
+* `ip` (`[string]`): The IP address you want to verify.
 
 ## Testing
 
@@ -169,24 +161,10 @@ $ npm test
 
 ## License
 
-The MIT License (MIT)
+[The MIT License (MIT)](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2015 Kristian Muñiz
+Copyright (c) 2015 Kristian Muñiz [http://krismuniz.com/]
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Disclaimer
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+I am not affiliated in any way to *A Trigger* and this library is not official. I just use this service and wanted to build this library for educational and productivity reasons.
