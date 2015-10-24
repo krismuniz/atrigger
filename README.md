@@ -163,6 +163,7 @@ tasks.verifyRequest({
 Want to run some tests?
 
 ```shell
+$ npm install
 $ npm test
 ```
 
