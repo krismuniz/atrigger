@@ -1,6 +1,6 @@
 {
   "name": "atrigger",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "A Trigger API JavaScript library",
   "main": "./index",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krismuniz/atrigger-node.git"
+    "url": "git+https://github.com/krismuniz/atrigger.git"
   },
   "keywords": [
     "atrigger",
@@ -21,9 +21,9 @@
   "author": "Kristian Muñiz <kristian.muniz@upr.edu> (http://www.krismuniz.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krismuniz/atrigger-node/issues"
+    "url": "https://github.com/krismuniz/atrigger/issues"
   },
-  "homepage": "https://github.com/krismuniz/atrigger-node#readme",
+  "homepage": "https://github.com/krismuniz/atrigger#readme",
   "devDependencies": {
     "chai": "^3.4.0",
     "mocha": "^2.3.3"

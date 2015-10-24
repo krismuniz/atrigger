@@ -1,6 +1,6 @@
 # atrigger
 
-[![Build Status](https://travis-ci.org/krismuniz/atrigger-node.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger-node)
+[![Build Status](https://travis-ci.org/krismuniz/atrigger.svg?branch=master)](https://travis-ci.org/krismuniz/atrigger)
 
 A very simple [A Trigger](http://atrigger.com) JavaScript library that helps you schedule and manage tasks using *A Trigger's* API.
 
