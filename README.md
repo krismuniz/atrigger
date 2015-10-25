@@ -14,7 +14,7 @@ I use it a lot, so I wrote this simple abstraction to make my life easier and ho
 
 This module helps you create, delete, pause, and resume tasks with ease and without worrying about URI Encoding, enormous URIs, GET requests, or anything other than your actual work. Also, with this module you can check if an IP address belongs to an atrigger.com server so you can verify the authenticity of a task call.
 
-This is basically a simple abstraction of the [A Trigger Rest API](http://atrigger.com/docs/wiki/5/rest-api-v10). The main purpose of this mini-project was to create and publish my first NPM module as I learn more and more about Node.js and JavaScript. But I didn't want to do something useless, so I built this. :smiley:
+This is basically a simple abstraction of the [A Trigger Rest API](http://atrigger.com/docs/wiki/5/rest-api-v10). The main purpose of this mini-project was to create and publish my first npm module as I learn more and more about Node.js and JavaScript. But I didn't want to do something useless, so I built this. :smiley:
 
 ## Usage Example
 
