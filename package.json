@@ -1,6 +1,6 @@
 {
   "name": "atrigger",
-  "version": "0.0.36",
+  "version": "0.0.365",
   "description": "A Trigger API JavaScript library",
   "main": "./index",
   "scripts": {
